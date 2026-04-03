@@ -135,27 +135,32 @@ features:
     font-size: 14px;
     line-height: 1.6;
     margin: 0 0 28px 0;
-    min-height: 44px; /* 保持两边对齐 */
+    min-height: 44px;
   }
   .custom-btn {
     display: inline-block;
     background-color: #3fa9f5;
-    color: #ffffff !important; /* 覆盖md默认链接颜色 */
+    color: #ffffff !important;
     text-decoration: none !important;
     padding: 10px 32px;
     border-radius: 6px;
     font-size: 15px;
     transition: opacity 0.2s;
+    white-space: nowrap; /* 确保按钮文字不换行 */
   }
   .custom-btn:hover {
     opacity: 0.9;
   }
+  
+  /* 修改重点部分 */
   .custom-action-group {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center; /* 改为 center，防止高度拉伸 */
     gap: 8px;
+    flex-wrap: nowrap; /* 强制不换行 */
   }
+  
   .custom-email-box {
     background-color: #f0f8ff;
     color: #3fa9f5;
@@ -164,7 +169,18 @@ features:
     font-size: 14px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
+  /* 响应式处理：当宽度不足时隐藏邮箱地址 */
+  @media (max-width: 500px) {
+    .custom-email-box {
+      display: none; /* 手机竖屏或窄屏时隐藏 */
+    }
+  }
+
   .custom-action-group .custom-btn {
     padding: 10px 20px;
   }
