@@ -1,5 +1,6 @@
 ---
 layout: page
+sidebar: false
 ---
 <!-- Banner -->
 <div style="max-width: 1200px; margin: 2rem auto; border-radius: 16px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
