@@ -31,17 +31,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # 注意：因为没有 package-lock.json，这里的 cache 可能效果不大，但留着无妨
-          cache: npm
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        # 【修改点】使用普通 install 代替 ci，不需要锁文件
-        run: npm install
+        # 【核心修改】加上 --legacy-peer-deps 解决插件版本冲突
+        run: npm install --legacy-peer-deps
 
-      # 【关键】强制清理 VitePress 缓存，解决你遇到的“构建不一致”问题
+      # 【关键】强制清理 VitePress 缓存
       - name: Clean VitePress cache
         run: rm -rf .vitepress/cache && rm -rf dist && rm -rf node_modules/.vite
 
@@ -51,7 +49,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 【确认】你的构建产物目录
           path: .vitepress/dist
 
   # 部署任务
