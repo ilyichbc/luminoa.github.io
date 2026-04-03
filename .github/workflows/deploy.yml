@@ -34,20 +34,17 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Clean VitePress cache
-        run: rm -rf .vitepress/cache && rm -rf dist && rm -rf node_modules/.vite
+        # 注意：缓存路径也随 docs 目录改变了
+        run: rm -rf docs/.vitepress/cache && rm -rf docs/.vitepress/dist && rm -rf node_modules/.vite
 
       - name: Build with VitePress
         run: npm run docs:build
 
-      # 【调试步骤】构建完了看看当前目录结构到底是什么样的
-      - name: List directory structure
-        run: ls -la && echo "--- Checking .vitepress directory ---" && ls -la .vitepress || true
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 【修改点】90% 的情况是在根目录的 dist，先试这个
-          path: dist
+          # 【关键修正】因为源文件在 docs 下，产物也在 docs 目录里
+          path: docs/.vitepress/dist
 
   deploy:
     environment:
