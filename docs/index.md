@@ -91,53 +91,106 @@ features:
 <!-- 引入Font Awesome图标库（必须先引入才能使用图标） -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- 双卡片容器：横向排列，响应式适配 -->
-<div style="max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-  <!-- 左侧B站卡片（纯白背景+Font Awesome B站图标） -->
-  <div style="background: #ffffff; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; position: relative; overflow: hidden;">
-    <!-- 移除渐变装饰背景，改为纯空白 -->
-    <!-- B站图标（Font Awesome fab fa-bilibili） -->
-    <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #00c3ffcc, #0089f2cc); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
-      <i class="fab fa-bilibili" style="font-size: 48px; color: #ffffff;"></i>
+<style>
+  .custom-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 20px 0;
+  }
+  .custom-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 420px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f5f5f5;
+    padding: 40px 24px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .custom-icon-circle {
+    width: 64px;
+    height: 64px;
+    background-color: #3fa9f5;
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .custom-card-title {
+    color: #3fa9f5;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+  }
+  .custom-card-desc {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 28px 0;
+    min-height: 44px; /* 保持两边对齐 */
+  }
+  .custom-btn {
+    display: inline-block;
+    background-color: #3fa9f5;
+    color: #ffffff !important; /* 覆盖md默认链接颜色 */
+    text-decoration: none !important;
+    padding: 10px 32px;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: opacity 0.2s;
+  }
+  .custom-btn:hover {
+    opacity: 0.9;
+  }
+  .custom-action-group {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .custom-email-box {
+    background-color: #f0f8ff;
+    color: #3fa9f5;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  .custom-action-group .custom-btn {
+    padding: 10px 20px;
+  }
+</style>
+
+<div class="custom-cards-wrapper">
+  
+  <div class="custom-card">
+    <div class="custom-icon-circle">
+      <i class="fa-brands fa-bilibili"></i>
     </div>
-    <!-- 标题 -->
-    <h3 style="margin: 0 0 1rem 0; font-size: 1.8rem; font-weight: 600; color: #0089f2cc; position: relative; z-index: 1;">官方B站</h3>
-    <!-- 描述 -->
-    <p style="margin: 0 0 2rem 0; font-size: 1rem; color: #666666; line-height: 1.6; position: relative; z-index: 1;">
-      关注我们的B站官方账号，获取最新游戏资讯、开发日志和独家内容
-    </p>
-    <!-- 按钮（跳转指定B站地址） -->
-    <a href="https://space.bilibili.com/18224825" target="_blank" style="padding: 0.8rem 2.5rem; background: linear-gradient(135deg, #00c3ffcc, #0089f2cc); border-radius: 12px; color: #ffffff; font-size: 1.1rem; font-weight: 500; text-decoration: none; display: inline-block; transition: all 0.3s ease; position: relative; z-index: 1;"
-       onmouseover="this.style.opacity='0.9';"
-       onmouseout="this.style.opacity='1';">
-      访问主页
-    </a>
+    <h3 class="custom-card-title">官方B站</h3>
+    <p class="custom-card-desc">关注我们的B站官方账号，获取最新游戏资讯、开发日志和独家内容</p>
+    <a href="https://space.bilibili.com/18224825" target="_blank" class="custom-btn">访问主页</a>
   </div>
 
-  <!-- 右侧邮箱卡片（纯白背景+Font Awesome 邮箱图标） -->
-  <div style="background: #ffffff; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
-    <!-- 邮箱图标 -->
-    <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #00c3ffcc, #0089f2cc); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #ffffff; position: relative; z-index: 1;">
-      <i class="fas fa-envelope" style="font-size: 48px; color: #ffffff;"></i>
+  <div class="custom-card">
+    <div class="custom-icon-circle">
+      <i class="fa-solid fa-envelope"></i>
     </div>
-    <!-- 标题 -->
-    <h3 style="margin: 0 0 1rem 0; font-size: 1.8rem; font-weight: 600; color: #0089f2cc; position: relative; z-index: 1;">官方邮箱</h3>
-    <!-- 描述 -->
-    <p style="margin: 0 0 auto 0; font-size: 1rem; color: #666666; line-height: 1.6; position: relative; z-index: 1;">
-      有任何合作意向、反馈或咨询，请通过以下邮箱联系我们
-    </p>
-    <!-- 邮箱+按钮容器：水平并排，居中对齐 -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; flex-wrap: wrap;">
-      <!-- 邮箱地址展示 -->
-      <div style="padding: 0.8rem 1.5rem; background: rgba(0, 137, 242, 0.08); border-radius: 8px; color: #0089f2cc; font-size: 1.1rem; font-weight: 500; position: relative; z-index: 1;">
-        xinglaifuyu@outlook.com
-      </div>
-      <!-- 按钮 -->
-      <a href="mailto:xinglaifuyu@outlook.com" style="padding: 0.8rem 2.5rem; background: linear-gradient(135deg, #00c3ffcc, #0089f2cc); border-radius: 12px; color: #ffffff; font-size: 1.1rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; position: relative; z-index: 1;"
-         onmouseover="this.style.opacity='0.9';"
-         onmouseout="this.style.opacity='1';">
-        发送邮件
-      </a>
+    <h3 class="custom-card-title">官方邮箱</h3>
+    <p class="custom-card-desc">有任何合作意向、反馈或咨询，请通过以下邮箱联系我们</p>
+    <div class="custom-action-group">
+      <div class="custom-email-box">xinglaifuyu@outlook.com</div>
+      <a href="mailto:xinglaifuyu@outlook.com" class="custom-btn">发送邮件</a>
     </div>
   </div>
+
 </div>

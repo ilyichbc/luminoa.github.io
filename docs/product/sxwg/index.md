@@ -7,7 +7,7 @@ sidebar: false
   <div style="position: relative; width: 100%; height: 320px; overflow: hidden;">
     <!-- 背景图片（模糊效果） -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; filter: blur(3px) brightness(0.9); overflow: hidden;">
-      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_bg.jpg" alt="卡片背景" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      <img src="https://tc.alcy.cc/tc/20260121/29b6a8ffdca93f3773cf9b02eb425182.webp" alt="卡片背景" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
     </div>
     <!-- 背景遮罩层 -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.25); z-index: 1;"></div>
