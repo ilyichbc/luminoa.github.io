@@ -103,7 +103,7 @@ features:
   .custom-card {
     flex: 1;
     min-width: 300px;
-    max-width: 420px;
+    max-width: 1200px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
