@@ -6,13 +6,13 @@ layout: page
   <div style="position: relative; width: 100%; height: 320px; overflow: hidden;">
     <!-- 背景图片（模糊效果） -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; filter: blur(3px) brightness(0.9); overflow: hidden;">
-      <img src="../../img/sxwg_bg.jpg" alt="卡片背景" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_bg.jpg" alt="卡片背景" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
     </div>
     <!-- 背景遮罩层 -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.25); z-index: 1;"></div>
     <!-- 内容区域（Logo+标题+副标题） -->
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; text-align: center; z-index: 2; color: #ffffff; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <img src="../../img/sxwg_logo.webp" alt="霜星挽歌" style="max-width: 60%; max-height: 120px; object-fit: contain; margin: 0 auto 1rem;">
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="霜星挽歌" style="max-width: 60%; max-height: 120px; object-fit: contain; margin: 0 auto 1rem;">
       <h2 style="font-size: 2rem; line-height: 1.2; font-weight: 700; letter-spacing: 0.03em; margin: 0; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">霜星挽歌</h2>
       <p style="font-size: 1.1rem; line-height: 1.5; opacity: 0.85; letter-spacing: 0.05em; margin: 0.5rem 0 0; font-weight: 500;">A Frosty Star Elegy</p>
     </div>
@@ -194,7 +194,7 @@ layout: page
 
   <div class="vp-character-card">
     <div class="vp-character-img">
-      <img src="../../img/sxwg_logo.webp" alt="星霁">
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="星霁">
     </div>
     <div class="vp-character-info">
       <h3>星霁</h3>
@@ -205,7 +205,7 @@ layout: page
 
   <div class="vp-character-card">
     <div class="vp-character-img">
-      <img src="../../img/sxwg_logo.webp" alt="星霰">
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="星霰">
     </div>
     <div class="vp-character-info">
       <h3>星霰</h3>
@@ -363,11 +363,11 @@ layout: page
         <p class="download-tip">点击下方图标立即下载，体验那个冰雪世界中的动人故事</p>
         <div class="platform-buttons">
             <a href="https://store.steampowered.com/" target="_blank" class="platform-btn steam-btn">
-                <img src="../../icon/Steam_logo.webp" class="platform-icon" alt="Steam图标">
+                <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/icon/Steam_logo.webp" class="platform-icon" alt="Steam图标">
                 <span>Steam 下载</span>
             </a>
             <a href="https://www.taptap.cn/" target="_blank" class="platform-btn taptap-btn">
-                <img src="../../icon/Taptap_logo.webp" class="platform-icon" alt="TapTap图标">
+                <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/icon/Taptap_logo.webp" class="platform-icon" alt="TapTap图标">
                 <span>TapTap 下载</span>
             </a>
         </div>

@@ -10,7 +10,7 @@ hero:
   text: </dev>
   tagline: 这是一句slogan……
   image:
-    src: /img/logo.png
+    src: https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/logo.png
     alt: logo
   actions:
     - theme: brand
@@ -53,10 +53,9 @@ features:
   <div style="position: relative; height: 300px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%); overflow: hidden;">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(200,225,255,0.1) 35px, rgba(200,225,255,0.1) 70px);"></div>
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2;">
-      <img src="./img/sxwg_logo.webp" alt="霜星挽歌" style="height: 160px; filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.5));" />
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="霜星挽歌" style="height: 160px; filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.5));" />
     </div>
   </div>
-
 
   <!-- 底部信息区域（已添加跳转功能） -->
   <div style="padding: 2.5rem; background: #ffffff;">
