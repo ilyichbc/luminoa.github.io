@@ -29,7 +29,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/logo.png", // 页面上显示的logo
-    
+    // 全局关闭左侧侧边栏
+    sidebar: false,
     lastUpdated: {
       text: '最后更新于'
     },
