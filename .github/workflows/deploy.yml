@@ -2,7 +2,7 @@
 name: Deploy VitePress site to Pages
 
 on:
-  # 在推送到 main 分支时运行。根据你的默认分支，可能是 master
+  # 在推送到 main 分支时运行。如果你的默认分支是 master，请修改下面
   push:
     branches: [main]
   # 允许你在 Actions 标签页手动运行此工作流
@@ -31,27 +31,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm # 或者 yarn/pnpm
+          # 注意：因为没有 package-lock.json，这里的 cache 可能效果不大，但留着无妨
+          cache: npm
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        # 这里使用 --force 确保重新安装，防止缓存的 node_modules 有问题
-        run: npm ci
+        # 【修改点】使用普通 install 代替 ci，不需要锁文件
+        run: npm install
 
-      # 【关键步骤】显式删除 VitePress 缓存
+      # 【关键】强制清理 VitePress 缓存，解决你遇到的“构建不一致”问题
       - name: Clean VitePress cache
-        run: rm -rf .vitepress/cache && rm -rf dist
+        run: rm -rf .vitepress/cache && rm -rf dist && rm -rf node_modules/.vite
 
       - name: Build with VitePress
-        # 这里也可以加上 --force 构建参数
         run: npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist # 注意：确认你的构建输出目录是这个还是根目录的 dist
+          # 【确认】你的构建产物目录
+          path: .vitepress/dist
 
   # 部署任务
   deploy:
