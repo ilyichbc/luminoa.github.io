@@ -28,9 +28,9 @@ sidebar: false
     </div>
     <!-- 右侧内容：上下留空 + 与图片间隔 -->
     <div style="flex: 1; padding: 30px 24px;">
-      <h3 style="margin: 0 0 12px; font-size: 24px; font-weight: 700; color: #1a1a1a;">游戏名称</h3>
-      <p style="margin: 0 0 8px; font-size: 14px; color: #666; line-height: 1.6;">第一行描述文字，灰色小字</p>
-      <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">第二行描述文字，灰色小字</p>
+      <h3 style="margin: 0 0 12px; font-size: 24px; font-weight: 700; color: #1a1a1a;">霜星挽歌</h3>
+      <p style="margin: 0 0 8px; font-size: 14px; color: #666; line-height: 1.6;">这是一个游戏</p>
+      <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.6;">描述编写中</p>
     </div>
   </div>
 </a>
