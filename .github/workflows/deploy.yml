@@ -2,25 +2,20 @@
 name: Deploy VitePress site to Pages
 
 on:
-  # 在推送到 main 分支时运行。如果你的默认分支是 master，请修改下面
   push:
     branches: [main]
-  # 允许你在 Actions 标签页手动运行此工作流
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 只允许一个并发部署
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 构建任务
   build:
     runs-on: ubuntu-latest
     steps:
@@ -36,22 +31,24 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        # 【核心修改】加上 --legacy-peer-deps 解决插件版本冲突
         run: npm install --legacy-peer-deps
 
-      # 【关键】强制清理 VitePress 缓存
       - name: Clean VitePress cache
         run: rm -rf .vitepress/cache && rm -rf dist && rm -rf node_modules/.vite
 
       - name: Build with VitePress
         run: npm run docs:build
 
+      # 【调试步骤】构建完了看看当前目录结构到底是什么样的
+      - name: List directory structure
+        run: ls -la && echo "--- Checking .vitepress directory ---" && ls -la .vitepress || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist
+          # 【修改点】90% 的情况是在根目录的 dist，先试这个
+          path: dist
 
-  # 部署任务
   deploy:
     environment:
       name: github-pages
