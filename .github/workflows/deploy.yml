@@ -1,55 +1,67 @@
+# 构建 VitePress 并部署到 GitHub Pages
 name: Deploy VitePress site to Pages
 
 on:
+  # 在推送到 main 分支时运行。根据你的默认分支，可能是 master
   push:
     branches: [main]
+  # 允许你在 Actions 标签页手动运行此工作流
   workflow_dispatch:
 
+# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 只允许一个并发部署
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
+  # 构建任务
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 代码
-        uses: actions/checkout@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
+          node-version: 20
+          cache: npm # 或者 yarn/pnpm
 
-      - name: 设置 Node.js 环境
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: yarn # 锁定 yarn 缓存
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: 配置 GitHub Pages
-        uses: actions/configure-pages@v5
+      - name: Install dependencies
+        # 这里使用 --force 确保重新安装，防止缓存的 node_modules 有问题
+        run: npm ci
 
-      - name: 安装依赖（基于 yarn.lock）
-        run: yarn install --frozen-lockfile
+      # 【关键步骤】显式删除 VitePress 缓存
+      - name: Clean VitePress cache
+        run: rm -rf .vitepress/cache && rm -rf dist
 
-      - name: 构建 VitePress 站点
-        run: yarn run docs:build
+      - name: Build with VitePress
+        # 这里也可以加上 --force 构建参数
+        run: npm run docs:build
 
-      - name: 上传构建产物
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: .vitepress/dist # 注意：确认你的构建输出目录是这个还是根目录的 dist
 
+  # 部署任务
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
-      - name: 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
