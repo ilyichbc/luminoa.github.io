@@ -52,16 +52,23 @@ features:
   <!-- 顶部横幅区域 -->
   <div style="position: relative; height: 300px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%); overflow: hidden;">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(200,225,255,0.1) 35px, rgba(200,225,255,0.1) 70px);"></div>
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2;">
-      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="霜星挽歌" style="height: 160px; filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.5));" />
+    <!-- 关键修改：使用 flex 布局 -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 2; padding: 20px; box-sizing: border-box;">
+      <img src="https://cdn.jsdelivr.net/gh/ilyichbc/cdn/luminoa-site-CDN/img/sxwg_logo.webp" alt="霜星挽歌" style="
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(135, 206, 250, 0.5));
+      " />
     </div>
   </div>
 
-  <!-- 底部信息区域（已添加跳转功能） -->
+  <!-- 底部信息区域 -->
   <div style="padding: 2.5rem; background: #ffffff;">
     <h2 style="margin: 0 0 1.5rem 0; font-size: 2rem; font-weight: 600; color: #00c3ffcc;">霜星挽歌</h2>
     <p style="margin: 0 0 2rem 0; font-size: 1.1rem; color: #666666;">游戏描述正在编写中……</p>
-    <!-- 替换为a标签实现跳转，保留原按钮样式 -->
     <a href="./product/sxwg" style="padding: 0.8rem 2rem; border: 2px solid #00c3ffcc; border-radius: 12px; background: transparent; color: #00c3ffcc; font-size: 1.1rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block;"
       onmouseover="this.style.background='#00c3ffcc'; this.style.color='#ffffff';"
       onmouseout="this.style.background='transparent'; this.style.color='#00c3ffcc';">
@@ -115,7 +122,7 @@ features:
   .custom-icon-circle {
     width: 64px;
     height: 64px;
-    background-color: #3fa9f5;
+    background-color: #00c3ffcc;
     color: #ffffff;
     border-radius: 50%;
     display: inline-flex;
@@ -125,7 +132,7 @@ features:
     margin-bottom: 16px;
   }
   .custom-card-title {
-    color: #3fa9f5;
+    color: #00c3ffcc;
     font-size: 22px;
     font-weight: 600;
     margin: 0 0 16px 0;
@@ -139,7 +146,7 @@ features:
   }
   .custom-btn {
     display: inline-block;
-    background-color: #3fa9f5;
+    background-color: #00c3ffcc;
     color: #ffffff !important;
     text-decoration: none !important;
     padding: 10px 32px;
@@ -163,7 +170,7 @@ features:
   
   .custom-email-box {
     background-color: #f0f8ff;
-    color: #3fa9f5;
+    color: #00c3ffcc;
     padding: 10px 16px;
     border-radius: 6px;
     font-size: 14px;
