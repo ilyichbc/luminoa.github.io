@@ -10,7 +10,7 @@ export default defineConfig({
       AutoSidebar({deletePrefix:'index',ignoreIndexItem:true})
     ]
   },
-   base: '/luminoa.github.io/',
+   base: '/',
   title: "星籁浮屿",
   description: "这是一句slogan……",
   appearance: false,
