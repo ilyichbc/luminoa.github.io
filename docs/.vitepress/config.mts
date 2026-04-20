@@ -36,6 +36,7 @@ export default defineConfig({
     },
     nav: [ // 页面右上角的导航
       { text: "主页", link: "/" },
+      { text: "最新资讯", link: "https://news.luminoa.ilyich.top/" },
       { text: "所有产品", link: "/product/" },
       { text: "关于我们", link: "/aboutus/" },
     ],
